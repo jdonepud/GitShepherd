@@ -1,0 +1,20 @@
+# Environment variables
+backend/.env
+
+# Python
+__pycache__/
+backend/__pycache__/
+*.py[cod]
+*$py.class
+
+# GitShepherd Workspaces
+workspace/
+backend/workspace/
+
+# Agent/Tool Metadata
+.agent/
+.DS_Store
+Thumbs.db
+
+# Large files or redundant logs
+*.log

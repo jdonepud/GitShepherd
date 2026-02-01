@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitShepherd | Autonomous Open-Source Refactor Agent</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="dark-theme">
+    <div class="blob-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="icon">🐑</span>
+                <span class="text">GitShepherd</span>
+            </div>
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                Agent Ready
+            </div>
+        </nav>
+    </header>
+
+    <main id="app">
+        <!-- Step 1: Input -->
+        <section id="input-section" class="card glass">
+            <h1>Autonomous Refactor & PR Enhancement</h1>
+            <p class="subtitle">Let the agent handle the tedious refactorings, testing, and PR creation while you focus
+                on creativity.</p>
+
+            <div class="form-group">
+                <label for="repo-url">GitHub Repository URL</label>
+                <input type="text" id="repo-url" placeholder="https://github.com/owner/repo" value="">
+            </div>
+
+            <div class="form-group">
+                <label for="task-desc">Task Description</label>
+                <textarea id="task-desc"
+                    placeholder="E.g., Refactor legacy sync Python code to async, add tests, and fix bugs..."></textarea>
+            </div>
+
+            <div class="options-grid">
+                <div class="option-card active" data-mode="refactor">
+                    <h3>Refactor + Test</h3>
+                    <p>Standard autonomous improvement loop.</p>
+                </div>
+                <div class="option-card" data-mode="review">
+                    <h3>PR Review + Patch</h3>
+                    <p>Critique PRs and suggest better fixes.</p>
+                </div>
+            </div>
+
+            <div class="advanced-settings">
+                <div class="setting">
+                    <label>Thinking Level</label>
+                    <select id="thinking-level">
+                        <option value="1">1 - Quick</option>
+                        <option value="2" selected>2 - Balanced</option>
+                        <option value="3">3 - Deep</option>
+                    </select>
+                </div>
+                <div class="setting">
+                    <label>Demo Mode</label>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
+                        <input type="checkbox" id="skip-tests" style="width: auto;">
+                        <span style="font-size: 0.85rem; color: var(--text-dim);">Skip slow tests</span>
+                    </div>
+                </div>
+            </div>
+
+            <button id="start-btn" class="primary-btn">Initialize Shepherd Agent</button>
+        </section>
+
+        <!-- Step 2: Progress (Hidden initially) -->
+        <section id="progress-section" class="card glass hidden">
+            <div class="progress-header">
+                <h2>Processing <span id="current-repo">...</span></h2>
+                <div class="loader"></div>
+            </div>
+
+            <div class="steps-timeline" id="steps-timeline">
+                <!-- Steps will be injected here -->
+            </div>
+
+            <div class="log-container">
+                <div class="log-header">
+                    <span>Agent Logs</span>
+                    <span class="pulse">Live</span>
+                </div>
+                <div id="logs" class="log-body">
+                    <div class="log-entry system">Starting repo analysis...</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 3: Result (Hidden initially) -->
+        <section id="result-section" class="card glass hidden">
+            <div class="result-header">
+                <h2>Refactoring Complete</h2>
+                <div class="actions">
+                    <button id="download-patch-btn" class="secondary-btn">Download Patch</button>
+                    <button id="copy-pr-btn" class="primary-btn-sm">Copy PR Description</button>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="diff">Code Changes</button>
+                <button class="tab-btn" data-tab="plan">Verification Report</button>
+                <button id="tab-pr" class="tab-btn" data-tab="pr">PR Package</button>
+            </div>
+
+            <div class="tab-content" id="tab-content">
+                <div class="diff-viewer">
+                    <pre><code id="diff-output">Fetching final diff...</code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Built with Gemini 3 &bull; By Jaswanth & Sadvikha </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
