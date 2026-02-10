@@ -61,10 +61,12 @@ This is where the agent performs the technical implementation:
 ### 4. PR Package (Final)
 Once the task is verified, the agent aggregates all changes into a final Verification Report and a conversational PR description ready to be used on GitHub.
 
+![Refactoring Report](report.jpg)
+
 ### PR Review Mode
 GitShepherd can also be used to critique existing Pull Requests. It analyzes the proposed changes for security risks, performance bottlenecks, and logical errors.
 
-![PR Review Analysis](django_review.jpg)
+![PR Review Analysis](review.jpg)
 
 ## Built with
 *   **Languages:** Python, JavaScript, CSS, HTML
