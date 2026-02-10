@@ -1,4 +1,4 @@
-# GitShepherd 🐑
+# GitShepherd
 
 **Autonomous AI refactoring agent that transforms natural language tasks into PR-ready code changes—powered by Gemini AI.**
 
@@ -37,26 +37,28 @@ GitShepherd is a smart, self-improving agent that helps open-source contributors
     python main.py
     ```
 
-3.  **Open the frontend:**
+4.  **Open the frontend:**
     Open `frontend/index.html` in your browser.
 
 ## How it Works
 
 GitShepherd operates on a sophisticated **ReAct (Reasoning + Acting)** loop designed for high-context code manipulation:
 
-### 1. 📂 Repo Mapper (Call 0)
+### 1. Repo Mapper (Call 0)
 The agent performs a "deep scan" of your repository. It doesn't just read code; it analyzes the directory tree to identify the tech stack, locate the main source entries, and determine the exact test commands (e.g., `pytest`, `npm test`) needed for verification.
-![Agent Processing](docs/images/processing.png)
 
-### 2. 📝 Architect Planner (Call 1)
+![Agent Processing](processing.png)
+
+### 2. Architect Planner (Call 1)
 Given your natural language task, the agent uses Gemini's reasoning capabilities to break down the request into an ordered sequence of technical steps. Each step includes the target files, the nature of the change, and a risk assessment.
 
-### 3. 🔄 Execution & Correction Loop
-This is where the magic happens. The agent:
+### 3. Execution and Correction Loop
+This is where the agent performs the technical implementation:
 - **Writes a Patch:** Generates a unified diff for the specific task.
 - **Runs Verification:** Executes the project's test suite to verify the change.
 - **Self-Corrects:** If tests fail, the agent analyzes the logs, diagnoses the root cause, and tries a different approach until the code is stable.
 
-### 4. 🎁 PR Package (Final)
-Once the task is verified, the agent aggregates all changes into a final "Verification Report" and a conversational PR description ready to be used on GitHub.
-![Refactoring Report](docs/images/report.png)
+### 4. PR Package (Final)
+Once the task is verified, the agent aggregates all changes into a final Verification Report and a conversational PR description ready to be used on GitHub.
+
+![Refactoring Report](report.png)
