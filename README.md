@@ -42,7 +42,21 @@ GitShepherd is a smart, self-improving agent that helps open-source contributors
 
 ## How it Works
 
-1.  **Call 0 - Repo Mapper:** Analyzes the directory tree to understand project type and test commands.
-2.  **Call 1 - Planner:** Generates an ordered execution plan.
-3.  **Loop - Execution & Correction:** The agent edits code and runs tests until the task is complete or max retries are reached.
-4.  **Final - PR Package:** Summarizes changes into a patch and a description.
+GitShepherd operates on a sophisticated **ReAct (Reasoning + Acting)** loop designed for high-context code manipulation:
+
+### 1. 📂 Repo Mapper (Call 0)
+The agent performs a "deep scan" of your repository. It doesn't just read code; it analyzes the directory tree to identify the tech stack, locate the main source entries, and determine the exact test commands (e.g., `pytest`, `npm test`) needed for verification.
+![Agent Processing](docs/images/processing.png)
+
+### 2. 📝 Architect Planner (Call 1)
+Given your natural language task, the agent uses Gemini's reasoning capabilities to break down the request into an ordered sequence of technical steps. Each step includes the target files, the nature of the change, and a risk assessment.
+
+### 3. 🔄 Execution & Correction Loop
+This is where the magic happens. The agent:
+- **Writes a Patch:** Generates a unified diff for the specific task.
+- **Runs Verification:** Executes the project's test suite to verify the change.
+- **Self-Corrects:** If tests fail, the agent analyzes the logs, diagnoses the root cause, and tries a different approach until the code is stable.
+
+### 4. 🎁 PR Package (Final)
+Once the task is verified, the agent aggregates all changes into a final "Verification Report" and a conversational PR description ready to be used on GitHub.
+![Refactoring Report](docs/images/report.png)
