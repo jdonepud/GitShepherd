@@ -47,7 +47,7 @@ GitShepherd operates on a sophisticated **ReAct (Reasoning + Acting)** loop desi
 ### 1. Repo Mapper (Call 0)
 The agent performs a "deep scan" of your repository. It doesn't just read code; it analyzes the directory tree to identify the tech stack, locate the main source entries, and determine the exact test commands (e.g., `pytest`, `npm test`) needed for verification.
 
-![Agent Processing](processing.png)
+![Agent Processing](processing.jpg)
 
 ### 2. Architect Planner (Call 1)
 Given your natural language task, the agent uses Gemini's reasoning capabilities to break down the request into an ordered sequence of technical steps. Each step includes the target files, the nature of the change, and a risk assessment.
@@ -61,4 +61,4 @@ This is where the agent performs the technical implementation:
 ### 4. PR Package (Final)
 Once the task is verified, the agent aggregates all changes into a final Verification Report and a conversational PR description ready to be used on GitHub.
 
-![Refactoring Report](report.png)
+![Refactoring Report](report.jpg)
