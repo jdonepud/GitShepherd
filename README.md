@@ -68,10 +68,3 @@ GitShepherd can also be used to critique existing Pull Requests. It analyzes the
 
 ![PR Review Analysis](review.jpg)
 
-## Built with
-*   **Languages:** Python, JavaScript, CSS, HTML
-*   **Intelligence:** Gemini 2.5 Flash / Gemini 3 Pro (API)
-*   **Frameworks:** FastAPI, Uvicorn
-*   **APIs:** GitHub REST API (Tarball & PR Diff)
-*   **Design:** Custom Glassmorphism System, JetBrains Mono Typography
-*   **Infrastructure:** Server-Sent Events (SSE) for Real-time Streaming
